@@ -1,0 +1,72 @@
+﻿using UnityEngine;
+
+public class tornadospawner : MonoBehaviour
+{
+	public GameObject tornadoPrefab;
+	public Transform spawnPoint;   // de onde o tornado vai nascer
+	public float cooldown = 4f;    // tempo de recarga
+	public float detectionRadius = 6f; // raio de detecção dos inimigos
+
+	private bool canSpawn = true;
+	private bool desbloqueado = false; // começa bloqueado
+
+	void Update()
+	{
+		if (!desbloqueado) return; // se não desbloqueou ainda, sai
+
+		GameObject inimigo = EncontrarInimigoMaisProximo();
+
+		// Se tem inimigo no raio e pode spawnar
+		if (inimigo != null && canSpawn)
+		{
+			SpawnTornado();
+		}
+	}
+
+	void SpawnTornado()
+	{
+		// Garante que o tornado nasça em pé
+		Instantiate(tornadoPrefab, spawnPoint.position, Quaternion.Euler(0, spawnPoint.rotation.eulerAngles.y, 0));
+
+		canSpawn = false;
+		Invoke("ResetCooldown", cooldown);
+	}
+
+	void ResetCooldown()
+	{
+		canSpawn = true;
+	}
+
+	GameObject EncontrarInimigoMaisProximo()
+	{
+		GameObject[] inimigos = GameObject.FindGameObjectsWithTag("Enemy");
+		GameObject maisProximo = null;
+		float menorDistancia = detectionRadius; // só considera dentro do raio
+		Vector3 posicaoAtual = transform.position;
+
+		foreach (GameObject inimigo in inimigos)
+		{
+			float distancia = Vector3.Distance(posicaoAtual, inimigo.transform.position);
+			if (distancia < menorDistancia)
+			{
+				menorDistancia = distancia;
+				maisProximo = inimigo;
+			}
+		}
+
+		return maisProximo;
+	}
+
+	// Chame esse método ao apertar o botão
+	public void DesbloquearTornado()
+	{
+		cooldown -= 1f;
+		desbloqueado = true;
+	}
+
+	void OnDrawGizmosSelected()
+	{
+		Gizmos.color = new Color(0f, 0.7f, 1f, 0.3f);
+		Gizmos.DrawSphere(transform.position, detectionRadius);
+		    }
+}
