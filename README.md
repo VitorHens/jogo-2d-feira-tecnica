@@ -1,12 +1,12 @@
 # 🎮 Jogo 2D — Feira Técnica
 
-Jogo 2D desenvolvido na **Unity** para a Feira Técnica da escola. O projeto reúne diferentes fases, inimigos, progressão do jogador e mecânicas implementadas com scripts em C#.
+Jogo 2D desenvolvido na **Unity** para a Feira Técnica da escola. O projeto reúne diferentes fases, inimigos, progressão do jogador e diversas mecânicas implementadas com scripts em **C#**.
 
 ## 🚀 Funcionalidades
 
 - Diferentes fases e desafios
 - Sistema de inimigos
-- Experiência e progressão
+- Experiência e progressão do jogador
 - Habilidades e ataques
 - Menus e navegação
 - Animações
@@ -15,15 +15,38 @@ Jogo 2D desenvolvido na **Unity** para a Feira Técnica da escola. O projeto re�
 
 ## 🛠️ Tecnologias
 
-Unity • C# • Desenvolvimento de Jogos 2D
+- Unity **2017.4.40f1**
+- C#
+- Desenvolvimento de jogos 2D
 
-## 📁 Estrutura
+## 📁 Estrutura do projeto
 
-O projeto está organizado com pastas de `Assets`, scripts, cenas, prefabs, sprites e configurações da Unity.
+```text
+├── Assets/
+│   ├── Prefabs/
+│   ├── Scenes/
+│   ├── Scripts/
+│   └── Sprites/
+└── ProjectSettings/
+```
+
+Os scripts em C# controlam mecânicas como movimentação, inimigos, ataques, menus, animações e progressão.
+
+## ▶️ Como abrir
+
+1. Instale a Unity `2017.4.40f1` ou uma versão compatível.
+2. Clone o repositório:
+
+```bash
+git clone https://github.com/VitorHens/feira_t-cnica_1ano.git
+```
+
+3. No Unity Hub ou no editor da Unity, selecione a pasta clonada como projeto.
+4. Abra uma das cenas disponíveis em `Assets/Scenes/` e execute o jogo pelo botão **Play**.
 
 ## 🎯 Objetivo
 
-Praticar programação em C#, lógica de jogos, criação de mecânicas e desenvolvimento de um projeto completo em equipe.
+Praticar programação em C#, lógica de jogos, criação de mecânicas, organização de cenas e desenvolvimento de um projeto completo em equipe.
 
 ---
 
