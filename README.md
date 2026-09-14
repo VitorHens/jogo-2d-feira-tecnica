@@ -38,7 +38,7 @@ Os scripts em C# controlam mecânicas como movimentação, inimigos, ataques, me
 2. Clone o repositório:
 
 ```bash
-git clone https://github.com/VitorHens/jogo-2d-sistema-avaliacao-feira-tecnica.git
+git clone https://github.com/VitorHens/jogo-2d-feira-tecnica.git
 ```
 
 3. No Unity Hub ou no editor da Unity, selecione a pasta clonada como projeto.
